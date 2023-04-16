@@ -1,0 +1,226 @@
+
+
+================================================================
+== Vivado HLS Report for 'Stream2Mem'
+================================================================
+* Date:           Mon Mar  1 13:10:55 2021
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        cnvW1A1-pynqZ1-Z2
+* Solution:       sol1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|     4.375|        0.62|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  264|  264|  264|  264|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  257|  257|         3|          1|          1|   256|    yes   |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 10
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 3 4 5 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	6  / (tmp)
+	4  / (!tmp)
+4 --> 
+	5  / true
+5 --> 
+	3  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.44>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%out_V_offset1_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %out_V_offset1)"   --->   Operation 11 'read' 'out_V_offset1_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%out_V_offset_read = call i61 @_ssdm_op_Read.ap_auto.i61(i61 %out_V_offset)"   --->   Operation 12 'read' 'out_V_offset_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%tmp_3_cast = zext i32 %out_V_offset1_read to i62"   --->   Operation 13 'zext' 'tmp_3_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%out_V_offset_cast = zext i61 %out_V_offset_read to i62"   --->   Operation 14 'zext' 'out_V_offset_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (3.44ns)   --->   "%sum2 = add i62 %out_V_offset_cast, %tmp_3_cast"   --->   Operation 15 'add' 'sum2' <Predicate = true> <Delay = 3.44> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 3.44> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 2 <SV = 1> <Delay = 4.37>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %in_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 16 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %out_V, [6 x i8]* @p_str34, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 16, [8 x i8]* @p_str35, [6 x i8]* @p_str36, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 17 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%sum2_cast = zext i62 %sum2 to i64"   --->   Operation 18 'zext' 'sum2_cast' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%out_V_addr = getelementptr i64* %out_V, i64 %sum2_cast" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:156]   --->   Operation 19 'getelementptr' 'out_V_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (4.37ns)   --->   "%out_V_addr_wr_req = call i1 @_ssdm_op_WriteReq.m_axi.i64P(i64* %out_V_addr, i32 256)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:156]   --->   Operation 20 'writereq' 'out_V_addr_wr_req' <Predicate = true> <Delay = 4.37> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_2 : Operation 21 [1/1] (1.76ns)   --->   "br label %1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:153]   --->   Operation 21 'br' <Predicate = true> <Delay = 1.76>
+
+State 3 <SV = 2> <Delay = 1.82>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%i = phi i9 [ 0, %0 ], [ %i_1, %2 ]"   --->   Operation 22 'phi' 'i' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 23 [1/1] (1.66ns)   --->   "%tmp = icmp eq i9 %i, -256" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:153]   --->   Operation 23 'icmp' 'tmp' <Predicate = true> <Delay = 1.66> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.66> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 256, i64 256, i64 256)"   --->   Operation 24 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 25 [1/1] (1.82ns)   --->   "%i_1 = add i9 %i, 1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:153]   --->   Operation 25 'add' 'i_1' <Predicate = true> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 3.44> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "br i1 %tmp, label %3, label %2" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:153]   --->   Operation 26 'br' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 2.18>
+ST_4 : Operation 27 [1/1] (2.18ns)   --->   "%tmp_V = call i64 @_ssdm_op_Read.ap_fifo.volatile.i64P(i64* %in_V_V)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:155]   --->   Operation 27 'read' 'tmp_V' <Predicate = (!tmp)> <Delay = 2.18> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+
+State 5 <SV = 4> <Delay = 4.37>
+ST_5 : Operation 28 [1/1] (0.00ns)   --->   "%tmp_s = call i32 (...)* @_ssdm_op_SpecRegionBegin([14 x i8]* @p_str39)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:153]   --->   Operation 28 'specregionbegin' 'tmp_s' <Predicate = (!tmp)> <Delay = 0.00>
+ST_5 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:154]   --->   Operation 29 'specpipeline' <Predicate = (!tmp)> <Delay = 0.00>
+ST_5 : Operation 30 [1/1] (4.37ns)   --->   "call void @_ssdm_op_Write.m_axi.i64P(i64* %out_V_addr, i64 %tmp_V, i8 -1)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:156]   --->   Operation 30 'write' <Predicate = (!tmp)> <Delay = 4.37> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_5 : Operation 31 [1/1] (0.00ns)   --->   "%empty_345 = call i32 (...)* @_ssdm_op_SpecRegionEnd([14 x i8]* @p_str39, i32 %tmp_s)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:157]   --->   Operation 31 'specregionend' 'empty_345' <Predicate = (!tmp)> <Delay = 0.00>
+ST_5 : Operation 32 [1/1] (0.00ns)   --->   "br label %1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:153]   --->   Operation 32 'br' <Predicate = (!tmp)> <Delay = 0.00>
+
+State 6 <SV = 3> <Delay = 4.37>
+ST_6 : Operation 33 [5/5] (4.37ns)   --->   "%out_V_addr_wr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i64P(i64* %out_V_addr)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:156]   --->   Operation 33 'writeresp' 'out_V_addr_wr_resp' <Predicate = true> <Delay = 4.37> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 7 <SV = 4> <Delay = 4.37>
+ST_7 : Operation 34 [4/5] (4.37ns)   --->   "%out_V_addr_wr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i64P(i64* %out_V_addr)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:156]   --->   Operation 34 'writeresp' 'out_V_addr_wr_resp' <Predicate = true> <Delay = 4.37> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 8 <SV = 5> <Delay = 4.37>
+ST_8 : Operation 35 [3/5] (4.37ns)   --->   "%out_V_addr_wr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i64P(i64* %out_V_addr)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:156]   --->   Operation 35 'writeresp' 'out_V_addr_wr_resp' <Predicate = true> <Delay = 4.37> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 9 <SV = 6> <Delay = 4.37>
+ST_9 : Operation 36 [2/5] (4.37ns)   --->   "%out_V_addr_wr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i64P(i64* %out_V_addr)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:156]   --->   Operation 36 'writeresp' 'out_V_addr_wr_resp' <Predicate = true> <Delay = 4.37> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 10 <SV = 7> <Delay = 4.37>
+ST_10 : Operation 37 [1/5] (4.37ns)   --->   "%out_V_addr_wr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i64P(i64* %out_V_addr)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:156]   --->   Operation 37 'writeresp' 'out_V_addr_wr_resp' <Predicate = true> <Delay = 4.37> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_10 : Operation 38 [1/1] (0.00ns)   --->   "ret void" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:158]   --->   Operation 38 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 3.44ns
+The critical path consists of the following:
+	wire read on port 'out_V_offset1' [5]  (0 ns)
+	'add' operation ('sum2') [11]  (3.44 ns)
+
+ <State 2>: 4.38ns
+The critical path consists of the following:
+	'getelementptr' operation ('out_V_addr', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:156) [13]  (0 ns)
+	bus request on port 'out_V' (/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:156) [14]  (4.38 ns)
+
+ <State 3>: 1.82ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:153) [17]  (0 ns)
+	'add' operation ('i', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:153) [20]  (1.82 ns)
+
+ <State 4>: 2.19ns
+The critical path consists of the following:
+	fifo read on port 'in_V_V' (/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:155) [25]  (2.19 ns)
+
+ <State 5>: 4.38ns
+The critical path consists of the following:
+	bus write on port 'out_V' (/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:156) [26]  (4.38 ns)
+
+ <State 6>: 4.38ns
+The critical path consists of the following:
+	bus access on port 'out_V' (/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:156) [30]  (4.38 ns)
+
+ <State 7>: 4.38ns
+The critical path consists of the following:
+	bus access on port 'out_V' (/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:156) [30]  (4.38 ns)
+
+ <State 8>: 4.38ns
+The critical path consists of the following:
+	bus access on port 'out_V' (/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:156) [30]  (4.38 ns)
+
+ <State 9>: 4.38ns
+The critical path consists of the following:
+	bus access on port 'out_V' (/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:156) [30]  (4.38 ns)
+
+ <State 10>: 4.38ns
+The critical path consists of the following:
+	bus access on port 'out_V' (/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:156) [30]  (4.38 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

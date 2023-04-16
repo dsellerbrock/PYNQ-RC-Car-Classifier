@@ -1,0 +1,5 @@
+set_property SRC_FILE_INFO {cfile:C:/Users/danielellerbrock/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/script/pynqZ1-Z2/pynqZ1-Z2.xdc rfile:../../../../../../../library/script/pynqZ1-Z2/pynqZ1-Z2.xdc id:1} [current_design]
+set_property src_info {type:XDC file:1 line:47 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN W18   IOSTANDARD LVCMOS33 } [get_ports audio_i2c_sda_io]; #IO_L22P_T3_34 Sch=ja_p[4]
+set_property src_info {type:XDC file:1 line:48 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN W19   IOSTANDARD LVCMOS33 } [get_ports audio_i2c_scl_io]; #IO_L22N_T3_34 Sch=ja_n[4]

@@ -1,0 +1,88 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'DoCompute'" level="0">
+<item name = "Date">Mon Mar  1 13:11:25 2021
+</item>
+<item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
+<item name = "Project">cnvW1A1-pynqZ1-Z2</item>
+<item name = "Solution">sol1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00, 9.883, 0.62</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">?, ?, ?, ?, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_Matrix_Vector_Activa_fu_1000">Matrix_Vector_Activa, ?, ?, ?, ?, none</column>
+<column name="grp_Matrix_Vector_Activa_8_fu_1135">Matrix_Vector_Activa_8, ?, ?, ?, ?, none</column>
+<column name="grp_Matrix_Vector_Activa_1_fu_1206">Matrix_Vector_Activa_1, ?, ?, ?, ?, none</column>
+<column name="grp_Matrix_Vector_Activa_2_fu_1277">Matrix_Vector_Activa_2, ?, ?, ?, ?, none</column>
+<column name="grp_Matrix_Vector_Activa_4_fu_1293">Matrix_Vector_Activa_4, ?, ?, ?, ?, none</column>
+<column name="grp_Matrix_Vector_Activa_7_fu_1364">Matrix_Vector_Activa_7, ?, ?, ?, ?, none</column>
+<column name="grp_Matrix_Vector_Activa_6_fu_1387">Matrix_Vector_Activa_6, ?, ?, ?, ?, none</column>
+<column name="grp_ConvolutionInputGene_fu_1399">ConvolutionInputGene, ?, ?, ?, ?, none</column>
+<column name="grp_ConvolutionInputGene_5_fu_1407">ConvolutionInputGene_5, ?, ?, ?, ?, none</column>
+<column name="grp_ConvolutionInputGene_1_fu_1415">ConvolutionInputGene_1, ?, ?, ?, ?, none</column>
+<column name="grp_ConvolutionInputGene_4_fu_1423">ConvolutionInputGene_4, ?, ?, ?, ?, none</column>
+<column name="grp_ConvolutionInputGene_3_fu_1431">ConvolutionInputGene_3, ?, ?, ?, ?, none</column>
+<column name="grp_ConvolutionInputGene_2_fu_1439">ConvolutionInputGene_2, ?, ?, ?, ?, none</column>
+<column name="grp_Matrix_Vector_Activa_3_fu_1447">Matrix_Vector_Activa_3, ?, ?, ?, ?, none</column>
+<column name="grp_Matrix_Vector_Activa_5_fu_1459">Matrix_Vector_Activa_5, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_8_fu_1471">StreamingDataWidthCo_8, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_7_fu_1479">StreamingDataWidthCo_7, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_12_fu_1487">StreamingDataWidthCo_12, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_16_fu_1495">StreamingDataWidthCo_16, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingMaxPool_Bat_1_fu_1503">StreamingMaxPool_Bat_1, ?, ?, ?, ?, none</column>
+<column name="grp_Mem2Stream_Batch_fu_1511">Mem2Stream_Batch, ?, ?, ?, ?, none</column>
+<column name="grp_Stream2Mem_Batch_fu_1521">Stream2Mem_Batch, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_17_fu_1530">StreamingDataWidthCo_17, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_5_fu_1538">StreamingDataWidthCo_5, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_1_fu_1546">StreamingDataWidthCo_1, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_2_fu_1554">StreamingDataWidthCo_2, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_11_fu_1562">StreamingDataWidthCo_11, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_14_fu_1570">StreamingDataWidthCo_14, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingMaxPool_Bat_fu_1578">StreamingMaxPool_Bat, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_13_fu_1586">StreamingDataWidthCo_13, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_3_fu_1594">StreamingDataWidthCo_3, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_4_fu_1602">StreamingDataWidthCo_4, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_fu_1610">StreamingDataWidthCo, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_6_fu_1618">StreamingDataWidthCo_6, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_15_fu_1626">StreamingDataWidthCo_15, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_9_fu_1634">StreamingDataWidthCo_9, ?, ?, ?, ?, none</column>
+<column name="grp_StreamingDataWidthCo_10_fu_1642">StreamingDataWidthCo_10, ?, ?, ?, ?, none</column>
+<column name="grp_DoCompute_Block_pro_4_fu_1650">DoCompute_Block_pro_4, 6, 6, 6, 6, none</column>
+<column name="grp_DoCompute_Block_pro_3_fu_1656">DoCompute_Block_pro_3, 6, 6, 6, 6, none</column>
+<column name="grp_DoCompute_Block_pro_1_fu_1662">DoCompute_Block_pro_1, 6, 6, 6, 6, none</column>
+<column name="grp_DoCompute_Block_pro_2_fu_1668">DoCompute_Block_pro_2, 2, 2, 2, 2, none</column>
+<column name="grp_DoCompute_Block_pro_fu_1674">DoCompute_Block_pro, 2, 2, 2, 2, none</column>
+<column name="StgValue_159_DoCompute_entry33612_fu_1680">DoCompute_entry33612, 0, 0, 0, 0, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

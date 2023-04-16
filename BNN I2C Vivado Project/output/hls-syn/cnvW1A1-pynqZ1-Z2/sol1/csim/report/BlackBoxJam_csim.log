@@ -1,0 +1,12 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch CLANG as the compiler.
+make: 'csim.exe' is up to date.
+Setting network weights and thresholds in accelerator...
+Packing and interleaving CIFAR-10 inputs...
+Running prebuilt CIFAR-10 test for 1 images...
+Inference took 5521001 microseconds, 5.521e+06 usec per image
+Classification rate: 0.181127 images per second
+Detected class 4
+in 5.521e+06 microseconds
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

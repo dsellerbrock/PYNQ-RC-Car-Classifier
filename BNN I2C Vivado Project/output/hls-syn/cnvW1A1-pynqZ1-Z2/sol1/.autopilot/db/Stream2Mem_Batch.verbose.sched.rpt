@@ -1,0 +1,163 @@
+
+
+================================================================
+== Vivado HLS Report for 'Stream2Mem_Batch'
+================================================================
+* Date:           Mon Mar  1 13:10:56 2021
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        cnvW1A1-pynqZ1-Z2
+* Solution:       sol1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|     4.375|        0.62|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    ?|    ?| 26 ~ 266 |          -|          -|     ?|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!tmp_i_i_i)
+3 --> 
+	2  / true
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.18>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%rep = alloca i32"   --->   Operation 4 'alloca' 'rep' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %memOutStrm_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 5 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %in_V, [6 x i8]* @p_str34, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 16, [8 x i8]* @p_str35, [6 x i8]* @p_str36, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 6 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %in_V, [6 x i8]* @p_str34, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 16, [8 x i8]* @p_str35, [6 x i8]* @p_str36, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 7 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %numReps_c129, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 8 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i61* %out_V_offset, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 9 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (2.18ns)   --->   "%out_V_offset_read = call i61 @_ssdm_op_Read.ap_fifo.i61P(i61* %out_V_offset)"   --->   Operation 10 'read' 'out_V_offset_read' <Predicate = true> <Delay = 2.18> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %memOutStrm_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 11 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %in_V, [6 x i8]* @p_str34, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 16, [8 x i8]* @p_str35, [6 x i8]* @p_str36, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 12 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %numReps_c129, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 13 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (2.18ns)   --->   "%numReps_c129_read = call i32 @_ssdm_op_Read.ap_fifo.i32P(i32* %numReps_c129)"   --->   Operation 14 'read' 'numReps_c129_read' <Predicate = true> <Delay = 2.18> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %in_V, [6 x i8]* @p_str34, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 16, [8 x i8]* @p_str35, [6 x i8]* @p_str36, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 15 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (1.81ns)   --->   "store i32 0, i32* %rep"   --->   Operation 16 'store' <Predicate = true> <Delay = 1.81>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "br label %.backedge.i.i.i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:187->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 17 'br' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 4.36>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%rep_load = load i32* %rep" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:192->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 18 'load' 'rep_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (2.47ns)   --->   "%tmp_i_i_i = icmp eq i32 %rep_load, %numReps_c129_read" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:187->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 19 'icmp' 'tmp_i_i_i' <Predicate = true> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "br i1 %tmp_i_i_i, label %.exit, label %0" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:187->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 20 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (2.55ns)   --->   "%repsLeft = sub i32 %numReps_c129_read, %rep_load" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:188->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 21 'sub' 'repsLeft' <Predicate = (!tmp_i_i_i)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%tmp = trunc i32 %repsLeft to i4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:188->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 22 'trunc' 'tmp' <Predicate = (!tmp_i_i_i)> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (1.30ns)   --->   "%tmp_11_i_i_i = icmp eq i4 %tmp, 0" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:189->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 23 'icmp' 'tmp_11_i_i_i' <Predicate = (!tmp_i_i_i)> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%tmp_14 = shl i32 %rep_load, 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:191->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 24 'shl' 'tmp_14' <Predicate = (!tmp_i_i_i)> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "br i1 %tmp_11_i_i_i, label %1, label %2" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:189->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 25 'br' <Predicate = (!tmp_i_i_i)> <Delay = 0.00>
+ST_2 : Operation 26 [2/2] (3.44ns)   --->   "call fastcc void @Stream2Mem.1(i64* %memOutStrm_V_V, i64* %in_V, i61 %out_V_offset_read, i32 %tmp_14)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:195->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 26 'call' <Predicate = (!tmp_i_i_i & !tmp_11_i_i_i)> <Delay = 3.44> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 27 [1/1] (2.55ns)   --->   "%rep_2 = add i32 %rep_load, 1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:196->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 27 'add' 'rep_2' <Predicate = (!tmp_i_i_i & !tmp_11_i_i_i)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 28 [1/1] (1.81ns)   --->   "store i32 %rep_2, i32* %rep" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:196->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 28 'store' <Predicate = (!tmp_i_i_i & !tmp_11_i_i_i)> <Delay = 1.81>
+ST_2 : Operation 29 [2/2] (3.44ns)   --->   "call fastcc void @Stream2Mem(i64* %memOutStrm_V_V, i64* %in_V, i61 %out_V_offset_read, i32 %tmp_14)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:191->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 29 'call' <Predicate = (!tmp_i_i_i & tmp_11_i_i_i)> <Delay = 3.44> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 30 [1/1] (2.55ns)   --->   "%rep_1 = add i32 %rep_load, 16" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:192->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 30 'add' 'rep_1' <Predicate = (!tmp_i_i_i & tmp_11_i_i_i)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 31 [1/1] (1.81ns)   --->   "store i32 %rep_1, i32* %rep" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:192->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 31 'store' <Predicate = (!tmp_i_i_i & tmp_11_i_i_i)> <Delay = 1.81>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 32 'ret' <Predicate = (tmp_i_i_i)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 33 [1/2] (0.00ns)   --->   "call fastcc void @Stream2Mem.1(i64* %memOutStrm_V_V, i64* %in_V, i61 %out_V_offset_read, i32 %tmp_14)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:195->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 33 'call' <Predicate = (!tmp_11_i_i_i)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 34 [1/1] (0.00ns)   --->   "br label %.backedge.i.i.i.backedge"   --->   Operation 34 'br' <Predicate = (!tmp_11_i_i_i)> <Delay = 0.00>
+ST_3 : Operation 35 [1/2] (0.00ns)   --->   "call fastcc void @Stream2Mem(i64* %memOutStrm_V_V, i64* %in_V, i61 %out_V_offset_read, i32 %tmp_14)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:191->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 35 'call' <Predicate = (tmp_11_i_i_i)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 36 [1/1] (0.00ns)   --->   "br label %.backedge.i.i.i.backedge" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:193->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191]   --->   Operation 36 'br' <Predicate = (tmp_11_i_i_i)> <Delay = 0.00>
+ST_3 : Operation 37 [1/1] (0.00ns)   --->   "br label %.backedge.i.i.i"   --->   Operation 37 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 2.19ns
+The critical path consists of the following:
+	fifo read on port 'out_V_offset' [11]  (2.19 ns)
+
+ <State 2>: 4.37ns
+The critical path consists of the following:
+	'load' operation ('rep_load', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:192->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191) on local variable 'rep' [20]  (0 ns)
+	'add' operation ('rep', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:196->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191) [31]  (2.55 ns)
+	'store' operation (/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:196->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191) of variable 'rep', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/dma.h:196->/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/network/cnvW1A1/hw/top.cpp:191 on local variable 'rep' [32]  (1.81 ns)
+
+ <State 3>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

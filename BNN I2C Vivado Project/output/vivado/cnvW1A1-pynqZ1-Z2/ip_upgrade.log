@@ -1,0 +1,58 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+| Date         : Thu Apr 13 16:24:31 2023
+| Host         : DANIELELLER57FA running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'procsys_rst_ps7_100M_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of procsys_rst_ps7_100M_0 (xilinx.com:ip:proc_sys_reset:5.0) from (Rev. 12) to (Rev. 13)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+| Date         : Thu Apr 13 16:24:31 2023
+| Host         : DANIELELLER57FA running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'procsys_ps7_axi_periph_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of procsys_ps7_axi_periph_0 (xilinx.com:ip:axi_interconnect:2.1) from (Rev. 18) to (Rev. 28)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+| Date         : Thu Apr 13 16:24:31 2023
+| Host         : DANIELELLER57FA running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'procsys_axi_mem_intercon_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of procsys_axi_mem_intercon_0 (xilinx.com:ip:axi_interconnect:2.1) from (Rev. 18) to (Rev. 28)
+

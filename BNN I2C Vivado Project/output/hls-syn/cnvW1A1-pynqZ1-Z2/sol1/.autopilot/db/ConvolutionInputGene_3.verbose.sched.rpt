@@ -1,0 +1,422 @@
+
+
+================================================================
+== Vivado HLS Report for 'ConvolutionInputGene_3'
+================================================================
+* Date:           Mon Mar  1 13:10:25 2021
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        cnvW1A1-pynqZ1-Z2
+* Solution:       sol1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|     7.879|        0.62|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    ?|    ?|         6|          1|          1|     ?|    yes   |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 6
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 9
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 6, States = { 3 4 5 6 7 8 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	9  / (exitcond_flatten)
+	4  / (!exitcond_flatten)
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	3  / true
+9 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 4.37>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%read_block_4 = alloca i32"   --->   Operation 10 'alloca' 'read_block_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%ofm_y_1_i = alloca i32"   --->   Operation 11 'alloca' 'ofm_y_1_i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%ofm_x_3 = alloca i32"   --->   Operation 12 'alloca' 'ofm_x_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%k_y_3 = alloca i32"   --->   Operation 13 'alloca' 'k_y_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%inp_3 = alloca i32"   --->   Operation 14 'alloca' 'inp_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%k_x_3 = alloca i32"   --->   Operation 15 'alloca' 'k_x_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%count_simd_3 = alloca i32"   --->   Operation 16 'alloca' 'count_simd_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%current_block_write_13 = alloca i32"   --->   Operation 17 'alloca' 'current_block_write_13' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%current_line_4 = alloca i32"   --->   Operation 18 'alloca' 'current_line_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%counter_internal_blo = alloca i32"   --->   Operation 19 'alloca' 'counter_internal_blo' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%inputBuf_0_V = alloca [24 x i32], align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:88]   --->   Operation 20 'alloca' 'inputBuf_0_V' <Predicate = true> <Delay = 0.00> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%inputBuf_1_V = alloca [24 x i32], align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:88]   --->   Operation 21 'alloca' 'inputBuf_1_V' <Predicate = true> <Delay = 0.00> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%inputBuf_2_V = alloca [24 x i32], align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:88]   --->   Operation 22 'alloca' 'inputBuf_2_V' <Predicate = true> <Delay = 0.00> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%inputBuf_3_V = alloca [24 x i32], align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:88]   --->   Operation 23 'alloca' 'inputBuf_3_V' <Predicate = true> <Delay = 0.00> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_1 : Operation 24 [1/1] (2.18ns)   --->   "%numReps_read = call i32 @_ssdm_op_Read.ap_fifo.i32P(i32* %numReps)"   --->   Operation 24 'read' 'numReps_read' <Predicate = true> <Delay = 2.18> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 25 [1/1] (2.18ns)   --->   "call void @_ssdm_op_Write.ap_fifo.i32P(i32* %numReps_out, i32 %numReps_read)"   --->   Operation 25 'write' <Predicate = true> <Delay = 2.18> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 26 [1/1] (1.76ns)   --->   "store i32 0, i32* %counter_internal_blo"   --->   Operation 26 'store' <Predicate = true> <Delay = 1.76>
+ST_1 : Operation 27 [1/1] (1.81ns)   --->   "store i32 0, i32* %current_line_4"   --->   Operation 27 'store' <Predicate = true> <Delay = 1.81>
+ST_1 : Operation 28 [1/1] (1.81ns)   --->   "store i32 0, i32* %current_block_write_13"   --->   Operation 28 'store' <Predicate = true> <Delay = 1.81>
+ST_1 : Operation 29 [1/1] (1.76ns)   --->   "store i32 0, i32* %count_simd_3"   --->   Operation 29 'store' <Predicate = true> <Delay = 1.76>
+ST_1 : Operation 30 [1/1] (1.76ns)   --->   "store i32 0, i32* %k_x_3"   --->   Operation 30 'store' <Predicate = true> <Delay = 1.76>
+ST_1 : Operation 31 [1/1] (1.81ns)   --->   "store i32 0, i32* %inp_3"   --->   Operation 31 'store' <Predicate = true> <Delay = 1.81>
+ST_1 : Operation 32 [1/1] (1.76ns)   --->   "store i32 0, i32* %k_y_3"   --->   Operation 32 'store' <Predicate = true> <Delay = 1.76>
+ST_1 : Operation 33 [1/1] (1.76ns)   --->   "store i32 0, i32* %ofm_x_3"   --->   Operation 33 'store' <Predicate = true> <Delay = 1.76>
+ST_1 : Operation 34 [1/1] (1.76ns)   --->   "store i32 0, i32* %ofm_y_1_i"   --->   Operation 34 'store' <Predicate = true> <Delay = 1.76>
+ST_1 : Operation 35 [1/1] (1.86ns)   --->   "store i32 0, i32* %read_block_4"   --->   Operation 35 'store' <Predicate = true> <Delay = 1.86>
+
+State 2 <SV = 1> <Delay = 2.83>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %out_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 36 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %in_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 37 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %numReps, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 38 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 39 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %numReps_out, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 39 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore([24 x i32]* %inputBuf_0_V, [24 x i32]* %inputBuf_1_V, [24 x i32]* %inputBuf_2_V, [24 x i32]* %inputBuf_3_V, [1 x i8]* @p_str, [7 x i8]* @p_str73, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:91]   --->   Operation 40 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%tmp_s = call i39 @_ssdm_op_BitConcatenate.i39.i32.i7(i32 %numReps_read, i7 0)"   --->   Operation 41 'bitconcatenate' 'tmp_s' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 42 [1/1] (0.00ns)   --->   "%p_shl = zext i39 %tmp_s to i40"   --->   Operation 42 'zext' 'p_shl' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 43 [1/1] (0.00ns)   --->   "%tmp_16 = call i36 @_ssdm_op_BitConcatenate.i36.i32.i4(i32 %numReps_read, i4 0)"   --->   Operation 43 'bitconcatenate' 'tmp_16' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 44 [1/1] (0.00ns)   --->   "%p_shl2 = zext i36 %tmp_16 to i40"   --->   Operation 44 'zext' 'p_shl2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 45 [1/1] (2.83ns)   --->   "%bound = add i40 %p_shl, %p_shl2"   --->   Operation 45 'add' 'bound' <Predicate = true> <Delay = 2.83> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 46 [1/1] (1.76ns)   --->   "br label %.preheader.i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:104]   --->   Operation 46 'br' <Predicate = true> <Delay = 1.76>
+
+State 3 <SV = 2> <Delay = 3.51>
+ST_3 : Operation 47 [1/1] (0.00ns)   --->   "%indvar_flatten = phi i40 [ 0, %entry ], [ %indvar_flatten_next, %._crit_edge.i ]"   --->   Operation 47 'phi' 'indvar_flatten' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 48 [1/1] (0.00ns)   --->   "%i_i = phi i8 [ 0, %entry ], [ %i, %._crit_edge.i ]"   --->   Operation 48 'phi' 'i_i' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 49 [1/1] (2.53ns)   --->   "%exitcond_flatten = icmp eq i40 %indvar_flatten, %bound"   --->   Operation 49 'icmp' 'exitcond_flatten' <Predicate = true> <Delay = 2.53> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 50 [1/1] (2.87ns)   --->   "%indvar_flatten_next = add i40 %indvar_flatten, 1"   --->   Operation 50 'add' 'indvar_flatten_next' <Predicate = true> <Delay = 2.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 51 [1/1] (0.00ns)   --->   "br i1 %exitcond_flatten, label %.exit, label %.preheader.i.preheader"   --->   Operation 51 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 52 [1/1] (1.55ns)   --->   "%tmp_i = icmp eq i8 %i_i, -112" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:105]   --->   Operation 52 'icmp' 'tmp_i' <Predicate = (!exitcond_flatten)> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 53 [1/1] (0.00ns)   --->   "%tmp_2344_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([13 x i8]* @p_str74)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:105]   --->   Operation 53 'specregionbegin' 'tmp_2344_i' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_3 : Operation 54 [1/1] (0.00ns)   --->   "%empty_2860 = call i32 (...)* @_ssdm_op_SpecRegionEnd([13 x i8]* @p_str74, i32 %tmp_2344_i)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:176]   --->   Operation 54 'specregionend' 'empty_2860' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_3 : Operation 55 [1/1] (1.91ns)   --->   "%i_i_op = add i8 %i_i, 1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:105]   --->   Operation 55 'add' 'i_i_op' <Predicate = (!exitcond_flatten)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 56 [1/1] (1.24ns)   --->   "%i = select i1 %tmp_i, i8 1, i8 %i_i_op" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:105]   --->   Operation 56 'select' 'i' <Predicate = (!exitcond_flatten)> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 57 [1/1] (0.00ns)   --->   "br label %.preheader.i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:105]   --->   Operation 57 'br' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 7.87>
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%read_block_4_load = load i32* %read_block_4"   --->   Operation 58 'load' 'read_block_4_load' <Predicate = (!exitcond_flatten & !tmp_i)> <Delay = 0.00>
+ST_4 : Operation 59 [1/1] (0.00ns)   --->   "%inp_3_load = load i32* %inp_3" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:107]   --->   Operation 59 'load' 'inp_3_load' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 60 [1/1] (0.69ns)   --->   "%read_block_1_i_mid2 = select i1 %tmp_i, i32 0, i32 %read_block_4_load" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:105]   --->   Operation 60 'select' 'read_block_1_i_mid2' <Predicate = (!exitcond_flatten)> <Delay = 0.69> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 61 [1/1] (0.00ns)   --->   "%tmp_2990 = trunc i32 %read_block_1_i_mid2 to i2" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:105]   --->   Operation 61 'trunc' 'tmp_2990' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 62 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:106]   --->   Operation 62 'specpipeline' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 63 [1/1] (2.47ns)   --->   "%tmp_i_2861 = icmp ult i32 %inp_3_load, 72" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:107]   --->   Operation 63 'icmp' 'tmp_i_2861' <Predicate = (!exitcond_flatten)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 64 [1/1] (0.00ns)   --->   "br i1 %tmp_i_2861, label %0, label %3" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:107]   --->   Operation 64 'br' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 65 [1/1] (0.00ns)   --->   "%counter_internal_blo_9 = load i32* %counter_internal_blo" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:123]   --->   Operation 65 'load' 'counter_internal_blo_9' <Predicate = (!tmp_i_2861)> <Delay = 0.00>
+ST_4 : Operation 66 [1/1] (2.47ns)   --->   "%tmp_128_i = icmp ult i32 %counter_internal_blo_9, 71" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:123]   --->   Operation 66 'icmp' 'tmp_128_i' <Predicate = (!tmp_i_2861)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 67 [1/1] (0.00ns)   --->   "br i1 %tmp_128_i, label %4, label %._crit_edge41.i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:123]   --->   Operation 67 'br' <Predicate = (!tmp_i_2861)> <Delay = 0.00>
+ST_4 : Operation 68 [1/1] (0.00ns)   --->   "%ofm_x_3_load = load i32* %ofm_x_3"   --->   Operation 68 'load' 'ofm_x_3_load' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 0.00>
+ST_4 : Operation 69 [1/1] (0.00ns)   --->   "%k_y_3_load = load i32* %k_y_3" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:124]   --->   Operation 69 'load' 'k_y_3_load' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 0.00>
+ST_4 : Operation 70 [1/1] (0.00ns)   --->   "%k_x_3_load = load i32* %k_x_3"   --->   Operation 70 'load' 'k_x_3_load' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 0.00>
+ST_4 : Operation 71 [1/1] (0.00ns)   --->   "%count_simd_3_load = load i32* %count_simd_3" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:131]   --->   Operation 71 'load' 'count_simd_3_load' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 0.00>
+ST_4 : Operation 72 [1/1] (0.00ns)   --->   "%tmp_2992 = trunc i32 %k_y_3_load to i2" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:124]   --->   Operation 72 'trunc' 'tmp_2992' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 0.00>
+ST_4 : Operation 73 [1/1] (2.55ns)   --->   "%k_y = add i32 1, %k_y_3_load" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:124]   --->   Operation 73 'add' 'k_y' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 74 [1/1] (0.00ns)   --->   "%tmp_2994 = trunc i32 %k_x_3_load to i29"   --->   Operation 74 'trunc' 'tmp_2994' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 0.00>
+ST_4 : Operation 75 [1/1] (0.00ns)   --->   "%tmp_2995 = trunc i32 %ofm_x_3_load to i29"   --->   Operation 75 'trunc' 'tmp_2995' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 0.00>
+ST_4 : Operation 76 [1/1] (2.46ns)   --->   "%tmp_129_i = add i29 %tmp_2995, %tmp_2994" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:128]   --->   Operation 76 'add' 'tmp_129_i' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 2.46> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 77 [1/1] (2.55ns)   --->   "%count_simd = add i32 1, %count_simd_3_load" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:131]   --->   Operation 77 'add' 'count_simd' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 78 [1/1] (2.47ns)   --->   "%tmp_133_i = icmp eq i32 %count_simd, 8" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:132]   --->   Operation 78 'icmp' 'tmp_133_i' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 79 [1/1] (1.76ns)   --->   "store i32 %count_simd, i32* %count_simd_3" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:131]   --->   Operation 79 'store' <Predicate = (!tmp_i_2861 & tmp_128_i & !tmp_133_i)> <Delay = 1.76>
+ST_4 : Operation 80 [1/1] (0.00ns)   --->   "br label %._crit_edge41.i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:132]   --->   Operation 80 'br' <Predicate = (!tmp_i_2861 & tmp_128_i & !tmp_133_i)> <Delay = 0.00>
+ST_4 : Operation 81 [1/1] (2.55ns)   --->   "%k_x = add i32 %k_x_3_load, 1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:134]   --->   Operation 81 'add' 'k_x' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 82 [1/1] (2.47ns)   --->   "%tmp_135_i = icmp eq i32 %k_x, 3" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:135]   --->   Operation 82 'icmp' 'tmp_135_i' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 83 [1/1] (1.76ns)   --->   "store i32 0, i32* %count_simd_3"   --->   Operation 83 'store' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & !tmp_135_i)> <Delay = 1.76>
+ST_4 : Operation 84 [1/1] (1.76ns)   --->   "store i32 %k_x, i32* %k_x_3" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:134]   --->   Operation 84 'store' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & !tmp_135_i)> <Delay = 1.76>
+ST_4 : Operation 85 [1/1] (0.00ns)   --->   "br label %._crit_edge41.i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:135]   --->   Operation 85 'br' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & !tmp_135_i)> <Delay = 0.00>
+ST_4 : Operation 86 [1/1] (2.47ns)   --->   "%tmp_137_i = icmp eq i32 %k_y, 3" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:138]   --->   Operation 86 'icmp' 'tmp_137_i' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 87 [1/1] (1.76ns)   --->   "store i32 0, i32* %count_simd_3"   --->   Operation 87 'store' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & !tmp_137_i)> <Delay = 1.76>
+ST_4 : Operation 88 [1/1] (1.76ns)   --->   "store i32 0, i32* %k_x_3"   --->   Operation 88 'store' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & !tmp_137_i)> <Delay = 1.76>
+ST_4 : Operation 89 [1/1] (1.76ns)   --->   "store i32 %k_y, i32* %k_y_3" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:137]   --->   Operation 89 'store' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & !tmp_137_i)> <Delay = 1.76>
+ST_4 : Operation 90 [1/1] (0.00ns)   --->   "br label %._crit_edge41.i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:138]   --->   Operation 90 'br' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & !tmp_137_i)> <Delay = 0.00>
+ST_4 : Operation 91 [1/1] (0.00ns)   --->   "%ofm_x_3_load_1 = load i32* %ofm_x_3" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:140]   --->   Operation 91 'load' 'ofm_x_3_load_1' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i)> <Delay = 0.00>
+ST_4 : Operation 92 [1/1] (2.55ns)   --->   "%ofm_x = add i32 %ofm_x_3_load_1, 1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:140]   --->   Operation 92 'add' 'ofm_x' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 93 [1/1] (2.47ns)   --->   "%tmp_138_i = icmp eq i32 %ofm_x_3_load_1, 0" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:141]   --->   Operation 93 'icmp' 'tmp_138_i' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 94 [1/1] (1.76ns)   --->   "store i32 0, i32* %k_y_3"   --->   Operation 94 'store' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i)> <Delay = 1.76>
+ST_4 : Operation 95 [1/1] (0.00ns)   --->   "br i1 %tmp_138_i, label %8, label %.._crit_edge41.i_crit_edge" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:141]   --->   Operation 95 'br' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i)> <Delay = 0.00>
+ST_4 : Operation 96 [1/1] (1.76ns)   --->   "store i32 0, i32* %count_simd_3"   --->   Operation 96 'store' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i & !tmp_138_i)> <Delay = 1.76>
+ST_4 : Operation 97 [1/1] (1.76ns)   --->   "store i32 0, i32* %k_x_3"   --->   Operation 97 'store' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i & !tmp_138_i)> <Delay = 1.76>
+ST_4 : Operation 98 [1/1] (1.76ns)   --->   "store i32 %ofm_x, i32* %ofm_x_3" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:140]   --->   Operation 98 'store' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i & !tmp_138_i)> <Delay = 1.76>
+ST_4 : Operation 99 [1/1] (0.00ns)   --->   "br label %._crit_edge41.i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:141]   --->   Operation 99 'br' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i & !tmp_138_i)> <Delay = 0.00>
+ST_4 : Operation 100 [1/1] (0.00ns)   --->   "%ofm_y_1_i_load = load i32* %ofm_y_1_i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:143]   --->   Operation 100 'load' 'ofm_y_1_i_load' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i & tmp_138_i)> <Delay = 0.00>
+ST_4 : Operation 101 [1/1] (0.00ns)   --->   "%inp_3_load_2 = load i32* %inp_3" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:144]   --->   Operation 101 'load' 'inp_3_load_2' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i & tmp_138_i)> <Delay = 0.00>
+ST_4 : Operation 102 [1/1] (2.55ns)   --->   "%ofm_y = add i32 %ofm_y_1_i_load, 1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:143]   --->   Operation 102 'add' 'ofm_y' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i & tmp_138_i)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 103 [1/1] (2.47ns)   --->   "%tmp_139_i = icmp eq i32 %ofm_y_1_i_load, 0" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:144]   --->   Operation 103 'icmp' 'tmp_139_i' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i & tmp_138_i)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 104 [1/1] (0.69ns)   --->   "%p_inp_1_i = select i1 %tmp_139_i, i32 0, i32 %inp_3_load_2" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:144]   --->   Operation 104 'select' 'p_inp_1_i' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i & tmp_138_i)> <Delay = 0.69> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 105 [1/1] (0.69ns)   --->   "%p_ofm_y_5_i = select i1 %tmp_139_i, i32 0, i32 %ofm_y" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:144]   --->   Operation 105 'select' 'p_ofm_y_5_i' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i & tmp_138_i)> <Delay = 0.69> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 106 [1/1] (1.76ns)   --->   "store i32 0, i32* %count_simd_3"   --->   Operation 106 'store' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i & tmp_138_i)> <Delay = 1.76>
+ST_4 : Operation 107 [1/1] (1.76ns)   --->   "store i32 0, i32* %k_x_3"   --->   Operation 107 'store' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i & tmp_138_i)> <Delay = 1.76>
+ST_4 : Operation 108 [1/1] (1.81ns)   --->   "store i32 %p_inp_1_i, i32* %inp_3" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:144]   --->   Operation 108 'store' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i & tmp_138_i)> <Delay = 1.81>
+ST_4 : Operation 109 [1/1] (1.76ns)   --->   "store i32 0, i32* %ofm_x_3"   --->   Operation 109 'store' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i & tmp_138_i)> <Delay = 1.76>
+ST_4 : Operation 110 [1/1] (1.76ns)   --->   "store i32 %p_ofm_y_5_i, i32* %ofm_y_1_i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:144]   --->   Operation 110 'store' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i & tmp_138_i)> <Delay = 1.76>
+ST_4 : Operation 111 [1/1] (0.00ns)   --->   "br label %._crit_edge41.i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:144]   --->   Operation 111 'br' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i & tmp_137_i & tmp_138_i)> <Delay = 0.00>
+ST_4 : Operation 112 [1/1] (0.00ns)   --->   "%counter_internal_blo_10 = load i32* %counter_internal_blo" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:153]   --->   Operation 112 'load' 'counter_internal_blo_10' <Predicate = (!tmp_i_2861)> <Delay = 0.00>
+ST_4 : Operation 113 [1/1] (2.47ns)   --->   "%tmp_140_i = icmp ult i32 %counter_internal_blo_10, 23" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:153]   --->   Operation 113 'icmp' 'tmp_140_i' <Predicate = (!tmp_i_2861)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 114 [1/1] (2.47ns)   --->   "%tmp_141_i = icmp ult i32 %read_block_1_i_mid2, 3" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:153]   --->   Operation 114 'icmp' 'tmp_141_i' <Predicate = (!tmp_i_2861)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 115 [1/1] (0.97ns)   --->   "%or_cond_i = and i1 %tmp_140_i, %tmp_141_i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:153]   --->   Operation 115 'and' 'or_cond_i' <Predicate = (!tmp_i_2861)> <Delay = 0.97> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 116 [1/1] (0.00ns)   --->   "br i1 %or_cond_i, label %9, label %._crit_edge41.i.._crit_edge47.i_crit_edge" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:153]   --->   Operation 116 'br' <Predicate = (!tmp_i_2861)> <Delay = 0.00>
+ST_4 : Operation 117 [1/1] (1.86ns)   --->   "store i32 %read_block_1_i_mid2, i32* %read_block_4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:105]   --->   Operation 117 'store' <Predicate = (!tmp_i_2861 & !or_cond_i)> <Delay = 1.86>
+ST_4 : Operation 118 [1/1] (0.00ns)   --->   "br label %._crit_edge47.i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:153]   --->   Operation 118 'br' <Predicate = (!tmp_i_2861 & !or_cond_i)> <Delay = 0.00>
+ST_4 : Operation 119 [1/1] (0.00ns)   --->   "%current_line_4_load_2 = load i32* %current_line_4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:156]   --->   Operation 119 'load' 'current_line_4_load_2' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.00>
+ST_4 : Operation 120 [1/1] (0.00ns)   --->   "%current_line_4_load_3 = load i32* %current_line_4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:159]   --->   Operation 120 'load' 'current_line_4_load_3' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.00>
+ST_4 : Operation 121 [1/1] (2.55ns)   --->   "%current_line_3 = add i32 %current_line_4_load_3, 1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:159]   --->   Operation 121 'add' 'current_line_3' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 122 [1/1] (2.47ns)   --->   "%tmp_143_i = icmp eq i32 %current_line_3, 24" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:160]   --->   Operation 122 'icmp' 'tmp_143_i' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 123 [1/1] (1.56ns)   --->   "%read_block_4_cast = add i2 %tmp_2990, 1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:163]   --->   Operation 123 'add' 'read_block_4_cast' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 1.56> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 124 [1/1] (0.69ns)   --->   "%current_line_3_i = select i1 %tmp_143_i, i32 0, i32 %current_line_3" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:160]   --->   Operation 124 'select' 'current_line_3_i' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.69> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 125 [1/1] (0.99ns)   --->   "%read_block_3 = select i1 %tmp_143_i, i2 %read_block_4_cast, i2 %tmp_2990" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:160]   --->   Operation 125 'select' 'read_block_3' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.99> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 126 [1/1] (0.00ns)   --->   "%read_block_3_cast_i = zext i2 %read_block_3 to i32" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:170]   --->   Operation 126 'zext' 'read_block_3_cast_i' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.00>
+ST_4 : Operation 127 [1/1] (1.81ns)   --->   "store i32 %current_line_3_i, i32* %current_line_4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:160]   --->   Operation 127 'store' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 1.81>
+ST_4 : Operation 128 [1/1] (1.86ns)   --->   "store i32 %read_block_3_cast_i, i32* %read_block_4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:170]   --->   Operation 128 'store' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 1.86>
+ST_4 : Operation 129 [1/1] (0.00ns)   --->   "%counter_internal_blo_11 = load i32* %counter_internal_blo" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:171]   --->   Operation 129 'load' 'counter_internal_blo_11' <Predicate = (!tmp_i_2861)> <Delay = 0.00>
+ST_4 : Operation 130 [1/1] (2.55ns)   --->   "%counter_internal_blo_12 = add i32 %counter_internal_blo_11, 1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:171]   --->   Operation 130 'add' 'counter_internal_blo_12' <Predicate = (!tmp_i_2861)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 131 [1/1] (2.47ns)   --->   "%tmp_145_i = icmp eq i32 %counter_internal_blo_12, 71" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:172]   --->   Operation 131 'icmp' 'tmp_145_i' <Predicate = (!tmp_i_2861)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 132 [1/1] (0.69ns)   --->   "%p_i = select i1 %tmp_145_i, i32 0, i32 %counter_internal_blo_12" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:172]   --->   Operation 132 'select' 'p_i' <Predicate = (!tmp_i_2861)> <Delay = 0.69> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 133 [1/1] (1.76ns)   --->   "store i32 %p_i, i32* %counter_internal_blo" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:172]   --->   Operation 133 'store' <Predicate = (!tmp_i_2861)> <Delay = 1.76>
+ST_4 : Operation 134 [1/1] (0.00ns)   --->   "br label %._crit_edge.i"   --->   Operation 134 'br' <Predicate = (!tmp_i_2861)> <Delay = 0.00>
+ST_4 : Operation 135 [1/1] (0.00ns)   --->   "%current_line_4_load = load i32* %current_line_4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:110]   --->   Operation 135 'load' 'current_line_4_load' <Predicate = (tmp_i_2861)> <Delay = 0.00>
+ST_4 : Operation 136 [1/1] (0.00ns)   --->   "%inp_3_load_1 = load i32* %inp_3" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:112]   --->   Operation 136 'load' 'inp_3_load_1' <Predicate = (tmp_i_2861)> <Delay = 0.00>
+ST_4 : Operation 137 [1/1] (0.00ns)   --->   "%current_line_4_load_1 = load i32* %current_line_4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:111]   --->   Operation 137 'load' 'current_line_4_load_1' <Predicate = (tmp_i_2861)> <Delay = 0.00>
+ST_4 : Operation 138 [1/1] (2.55ns)   --->   "%current_line = add i32 %current_line_4_load_1, 1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:111]   --->   Operation 138 'add' 'current_line' <Predicate = (tmp_i_2861)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 139 [1/1] (2.55ns)   --->   "%inp = add i32 %inp_3_load_1, 1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:112]   --->   Operation 139 'add' 'inp' <Predicate = (tmp_i_2861)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 140 [1/1] (2.47ns)   --->   "%tmp_134_i = icmp eq i32 %current_line, 24" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:113]   --->   Operation 140 'icmp' 'tmp_134_i' <Predicate = (tmp_i_2861)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 141 [1/1] (1.81ns)   --->   "store i32 %inp, i32* %inp_3" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:112]   --->   Operation 141 'store' <Predicate = (tmp_i_2861)> <Delay = 1.81>
+ST_4 : Operation 142 [1/1] (1.81ns)   --->   "store i32 %current_line, i32* %current_line_4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:111]   --->   Operation 142 'store' <Predicate = (tmp_i_2861 & !tmp_134_i)> <Delay = 1.81>
+ST_4 : Operation 143 [1/1] (1.86ns)   --->   "store i32 %read_block_1_i_mid2, i32* %read_block_4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:105]   --->   Operation 143 'store' <Predicate = (tmp_i_2861 & !tmp_134_i)> <Delay = 1.86>
+ST_4 : Operation 144 [1/1] (0.00ns)   --->   "br label %._crit_edge.i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:113]   --->   Operation 144 'br' <Predicate = (tmp_i_2861 & !tmp_134_i)> <Delay = 0.00>
+ST_4 : Operation 145 [1/1] (2.55ns)   --->   "%read_block = add i32 %read_block_1_i_mid2, 1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:119]   --->   Operation 145 'add' 'read_block' <Predicate = (tmp_i_2861 & tmp_134_i)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 146 [1/1] (1.76ns)   --->   "store i32 0, i32* %counter_internal_blo"   --->   Operation 146 'store' <Predicate = (tmp_i_2861 & tmp_134_i)> <Delay = 1.76>
+ST_4 : Operation 147 [1/1] (1.81ns)   --->   "store i32 0, i32* %current_line_4"   --->   Operation 147 'store' <Predicate = (tmp_i_2861 & tmp_134_i)> <Delay = 1.81>
+ST_4 : Operation 148 [1/1] (1.86ns)   --->   "store i32 %read_block, i32* %read_block_4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:119]   --->   Operation 148 'store' <Predicate = (tmp_i_2861 & tmp_134_i)> <Delay = 1.86>
+
+State 5 <SV = 4> <Delay = 7.53>
+ST_5 : Operation 149 [1/1] (0.00ns)   --->   "%current_block_write_10 = load i32* %current_block_write_13"   --->   Operation 149 'load' 'current_block_write_10' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 0.00>
+ST_5 : Operation 150 [1/1] (0.00ns)   --->   "%tmp_2993 = trunc i32 %current_block_write_10 to i2"   --->   Operation 150 'trunc' 'tmp_2993' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 0.00>
+ST_5 : Operation 151 [1/1] (0.00ns)   --->   "%tmp_131_i = call i32 @_ssdm_op_BitConcatenate.i32.i29.i3(i29 %tmp_129_i, i3 0)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:128]   --->   Operation 151 'bitconcatenate' 'tmp_131_i' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 0.00>
+ST_5 : Operation 152 [1/1] (2.55ns)   --->   "%current_line_in_bloc = add i32 %tmp_131_i, %count_simd_3_load" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:128]   --->   Operation 152 'add' 'current_line_in_bloc' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 153 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp = add i2 1, %tmp_2993"   --->   Operation 153 'add' 'tmp' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 0.00> <Core = "TAddSub">   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.03> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 154 [1/1] (2.07ns) (root node of TernaryAdder)   --->   "%current_block_read_9 = add i2 %tmp, %tmp_2992" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:124]   --->   Operation 154 'add' 'current_block_read_9' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 2.07> <Core = "TAddSub">   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.03> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 155 [1/1] (0.00ns)   --->   "br i1 %tmp_133_i, label %5, label %.._crit_edge41.i_crit_edge84" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:132]   --->   Operation 155 'br' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 0.00>
+ST_5 : Operation 156 [1/1] (0.00ns)   --->   "br i1 %tmp_135_i, label %6, label %.._crit_edge41.i_crit_edge83" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:135]   --->   Operation 156 'br' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i)> <Delay = 0.00>
+ST_5 : Operation 157 [1/1] (0.00ns)   --->   "br i1 %tmp_137_i, label %7, label %.._crit_edge41.i_crit_edge82" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:138]   --->   Operation 157 'br' <Predicate = (!tmp_i_2861 & tmp_128_i & tmp_133_i & tmp_135_i)> <Delay = 0.00>
+ST_5 : Operation 158 [1/1] (0.00ns)   --->   "%current_block_write_11 = load i32* %current_block_write_13"   --->   Operation 158 'load' 'current_block_write_11' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.00>
+ST_5 : Operation 159 [1/1] (0.00ns)   --->   "%tmp_2351_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([13 x i8]* @p_str75)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:153]   --->   Operation 159 'specregionbegin' 'tmp_2351_i' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.00>
+ST_5 : Operation 160 [1/1] (2.18ns)   --->   "%tmp_V = call i32 @_ssdm_op_Read.ap_fifo.volatile.i32P(i32* %in_V_V)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:155]   --->   Operation 160 'read' 'tmp_V' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 2.18> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_5 : Operation 161 [1/1] (0.00ns)   --->   "%tmp_142_i = zext i32 %current_line_4_load_2 to i64" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:156]   --->   Operation 161 'zext' 'tmp_142_i' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.00>
+ST_5 : Operation 162 [1/1] (0.00ns)   --->   "%tmp_2996 = trunc i32 %current_block_write_11 to i2"   --->   Operation 162 'trunc' 'tmp_2996' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.00>
+ST_5 : Operation 163 [1/1] (0.00ns)   --->   "%inputBuf_0_V_addr_4 = getelementptr [24 x i32]* %inputBuf_0_V, i64 0, i64 %tmp_142_i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:156]   --->   Operation 163 'getelementptr' 'inputBuf_0_V_addr_4' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.00>
+ST_5 : Operation 164 [1/1] (0.00ns)   --->   "%inputBuf_1_V_addr_4 = getelementptr [24 x i32]* %inputBuf_1_V, i64 0, i64 %tmp_142_i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:156]   --->   Operation 164 'getelementptr' 'inputBuf_1_V_addr_4' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.00>
+ST_5 : Operation 165 [1/1] (0.00ns)   --->   "%inputBuf_2_V_addr_4 = getelementptr [24 x i32]* %inputBuf_2_V, i64 0, i64 %tmp_142_i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:156]   --->   Operation 165 'getelementptr' 'inputBuf_2_V_addr_4' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.00>
+ST_5 : Operation 166 [1/1] (0.00ns)   --->   "%inputBuf_3_V_addr_4 = getelementptr [24 x i32]* %inputBuf_3_V, i64 0, i64 %tmp_142_i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:156]   --->   Operation 166 'getelementptr' 'inputBuf_3_V_addr_4' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.00>
+ST_5 : Operation 167 [1/1] (1.30ns)   --->   "switch i2 %tmp_2996, label %branch7.i [
+    i2 0, label %branch4.i
+    i2 1, label %branch5.i
+    i2 -2, label %branch6.i
+  ]" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:156]   --->   Operation 167 'switch' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 1.30>
+ST_5 : Operation 168 [1/1] (0.00ns)   --->   "%current_block_write_12 = load i32* %current_block_write_13" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:164]   --->   Operation 168 'load' 'current_block_write_12' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.00>
+ST_5 : Operation 169 [1/1] (0.00ns)   --->   "%tmp_2352_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([13 x i8]* @p_str76)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:160]   --->   Operation 169 'specregionbegin' 'tmp_2352_i' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.00>
+ST_5 : Operation 170 [1/1] (2.55ns)   --->   "%current_block_write_14 = add i32 %current_block_write_12, 1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:164]   --->   Operation 170 'add' 'current_block_write_14' <Predicate = (!tmp_i_2861 & or_cond_i & tmp_143_i)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 171 [1/1] (2.47ns)   --->   "%tmp_144_i = icmp eq i32 %current_block_write_14, 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:165]   --->   Operation 171 'icmp' 'tmp_144_i' <Predicate = (!tmp_i_2861 & or_cond_i & tmp_143_i)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 172 [1/1] (0.00ns) (grouped into LUT with out node current_block_write_16)   --->   "%current_block_write_15 = select i1 %tmp_144_i, i32 0, i32 %current_block_write_14" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:165]   --->   Operation 172 'select' 'current_block_write_15' <Predicate = (!tmp_i_2861 & or_cond_i & tmp_143_i)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 173 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([13 x i8]* @p_str76, i32 %tmp_2352_i)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:169]   --->   Operation 173 'specregionend' 'empty' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.00>
+ST_5 : Operation 174 [1/1] (0.69ns) (out node of the LUT)   --->   "%current_block_write_16 = select i1 %tmp_143_i, i32 %current_block_write_15, i32 %current_block_write_12" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:160]   --->   Operation 174 'select' 'current_block_write_16' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.69> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 175 [1/1] (0.00ns)   --->   "%empty_2859 = call i32 (...)* @_ssdm_op_SpecRegionEnd([13 x i8]* @p_str75, i32 %tmp_2351_i)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:170]   --->   Operation 175 'specregionend' 'empty_2859' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.00>
+ST_5 : Operation 176 [1/1] (1.81ns)   --->   "store i32 %current_block_write_16, i32* %current_block_write_13" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:115]   --->   Operation 176 'store' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 1.81>
+ST_5 : Operation 177 [1/1] (0.00ns)   --->   "br label %._crit_edge47.i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:170]   --->   Operation 177 'br' <Predicate = (!tmp_i_2861 & or_cond_i)> <Delay = 0.00>
+ST_5 : Operation 178 [1/1] (0.00ns)   --->   "%current_block_write_s = load i32* %current_block_write_13"   --->   Operation 178 'load' 'current_block_write_s' <Predicate = (tmp_i_2861)> <Delay = 0.00>
+ST_5 : Operation 179 [1/1] (2.18ns)   --->   "%tmp_V_867 = call i32 @_ssdm_op_Read.ap_fifo.volatile.i32P(i32* %in_V_V)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:109]   --->   Operation 179 'read' 'tmp_V_867' <Predicate = (tmp_i_2861)> <Delay = 2.18> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_5 : Operation 180 [1/1] (0.00ns)   --->   "%tmp_127_i = zext i32 %current_line_4_load to i64" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:110]   --->   Operation 180 'zext' 'tmp_127_i' <Predicate = (tmp_i_2861)> <Delay = 0.00>
+ST_5 : Operation 181 [1/1] (0.00ns)   --->   "%tmp_2991 = trunc i32 %current_block_write_s to i2"   --->   Operation 181 'trunc' 'tmp_2991' <Predicate = (tmp_i_2861)> <Delay = 0.00>
+ST_5 : Operation 182 [1/1] (0.00ns)   --->   "%inputBuf_0_V_addr = getelementptr [24 x i32]* %inputBuf_0_V, i64 0, i64 %tmp_127_i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:110]   --->   Operation 182 'getelementptr' 'inputBuf_0_V_addr' <Predicate = (tmp_i_2861)> <Delay = 0.00>
+ST_5 : Operation 183 [1/1] (0.00ns)   --->   "%inputBuf_1_V_addr = getelementptr [24 x i32]* %inputBuf_1_V, i64 0, i64 %tmp_127_i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:110]   --->   Operation 183 'getelementptr' 'inputBuf_1_V_addr' <Predicate = (tmp_i_2861)> <Delay = 0.00>
+ST_5 : Operation 184 [1/1] (0.00ns)   --->   "%inputBuf_2_V_addr = getelementptr [24 x i32]* %inputBuf_2_V, i64 0, i64 %tmp_127_i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:110]   --->   Operation 184 'getelementptr' 'inputBuf_2_V_addr' <Predicate = (tmp_i_2861)> <Delay = 0.00>
+ST_5 : Operation 185 [1/1] (0.00ns)   --->   "%inputBuf_3_V_addr = getelementptr [24 x i32]* %inputBuf_3_V, i64 0, i64 %tmp_127_i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:110]   --->   Operation 185 'getelementptr' 'inputBuf_3_V_addr' <Predicate = (tmp_i_2861)> <Delay = 0.00>
+ST_5 : Operation 186 [1/1] (1.30ns)   --->   "switch i2 %tmp_2991, label %branch3.i [
+    i2 0, label %branch0.i
+    i2 1, label %branch1.i
+    i2 -2, label %branch2.i
+  ]" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:110]   --->   Operation 186 'switch' <Predicate = (tmp_i_2861)> <Delay = 1.30>
+ST_5 : Operation 187 [1/1] (0.00ns)   --->   "br i1 %tmp_134_i, label %2, label %.._crit_edge.i_crit_edge" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:113]   --->   Operation 187 'br' <Predicate = (tmp_i_2861)> <Delay = 0.00>
+ST_5 : Operation 188 [1/1] (0.00ns)   --->   "%current_block_write_9 = load i32* %current_block_write_13" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:115]   --->   Operation 188 'load' 'current_block_write_9' <Predicate = (tmp_i_2861 & tmp_134_i)> <Delay = 0.00>
+ST_5 : Operation 189 [1/1] (2.55ns)   --->   "%current_block_write = add i32 %current_block_write_9, 1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:115]   --->   Operation 189 'add' 'current_block_write' <Predicate = (tmp_i_2861 & tmp_134_i)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 190 [1/1] (2.47ns)   --->   "%tmp_136_i = icmp eq i32 %current_block_write, 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:116]   --->   Operation 190 'icmp' 'tmp_136_i' <Predicate = (tmp_i_2861 & tmp_134_i)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 191 [1/1] (0.69ns)   --->   "%current_block_write_9_2858 = select i1 %tmp_136_i, i32 0, i32 %current_block_write" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:116]   --->   Operation 191 'select' 'current_block_write_9_2858' <Predicate = (tmp_i_2861 & tmp_134_i)> <Delay = 0.69> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 192 [1/1] (1.81ns)   --->   "store i32 %current_block_write_9_2858, i32* %current_block_write_13" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:115]   --->   Operation 192 'store' <Predicate = (tmp_i_2861 & tmp_134_i)> <Delay = 1.81>
+ST_5 : Operation 193 [1/1] (0.00ns)   --->   "br label %._crit_edge.i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:121]   --->   Operation 193 'br' <Predicate = (tmp_i_2861 & tmp_134_i)> <Delay = 0.00>
+
+State 6 <SV = 5> <Delay = 2.32>
+ST_6 : Operation 194 [1/1] (0.00ns)   --->   "%tmp_132_i = zext i32 %current_line_in_bloc to i64" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129]   --->   Operation 194 'zext' 'tmp_132_i' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 0.00>
+ST_6 : Operation 195 [1/1] (0.00ns)   --->   "%inputBuf_0_V_addr_5 = getelementptr [24 x i32]* %inputBuf_0_V, i64 0, i64 %tmp_132_i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129]   --->   Operation 195 'getelementptr' 'inputBuf_0_V_addr_5' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 0.00>
+ST_6 : Operation 196 [2/2] (2.32ns)   --->   "%inputBuf_0_V_load = load i32* %inputBuf_0_V_addr_5, align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129]   --->   Operation 196 'load' 'inputBuf_0_V_load' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 2.32> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_6 : Operation 197 [1/1] (0.00ns)   --->   "%inputBuf_1_V_addr_5 = getelementptr [24 x i32]* %inputBuf_1_V, i64 0, i64 %tmp_132_i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129]   --->   Operation 197 'getelementptr' 'inputBuf_1_V_addr_5' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 0.00>
+ST_6 : Operation 198 [2/2] (2.32ns)   --->   "%inputBuf_1_V_load = load i32* %inputBuf_1_V_addr_5, align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129]   --->   Operation 198 'load' 'inputBuf_1_V_load' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 2.32> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_6 : Operation 199 [1/1] (0.00ns)   --->   "%inputBuf_2_V_addr_5 = getelementptr [24 x i32]* %inputBuf_2_V, i64 0, i64 %tmp_132_i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129]   --->   Operation 199 'getelementptr' 'inputBuf_2_V_addr_5' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 0.00>
+ST_6 : Operation 200 [2/2] (2.32ns)   --->   "%inputBuf_2_V_load = load i32* %inputBuf_2_V_addr_5, align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129]   --->   Operation 200 'load' 'inputBuf_2_V_load' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 2.32> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_6 : Operation 201 [1/1] (0.00ns)   --->   "%inputBuf_3_V_addr_5 = getelementptr [24 x i32]* %inputBuf_3_V, i64 0, i64 %tmp_132_i" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129]   --->   Operation 201 'getelementptr' 'inputBuf_3_V_addr_5' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 0.00>
+ST_6 : Operation 202 [2/2] (2.32ns)   --->   "%inputBuf_3_V_load = load i32* %inputBuf_3_V_addr_5, align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129]   --->   Operation 202 'load' 'inputBuf_3_V_load' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 2.32> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_6 : Operation 203 [1/1] (2.32ns)   --->   "store i32 %tmp_V, i32* %inputBuf_2_V_addr_4, align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:156]   --->   Operation 203 'store' <Predicate = (!tmp_i_2861 & or_cond_i & tmp_2996 == 2)> <Delay = 2.32> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_6 : Operation 204 [1/1] (0.00ns)   --->   "br label %_ifconv" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:156]   --->   Operation 204 'br' <Predicate = (!tmp_i_2861 & or_cond_i & tmp_2996 == 2)> <Delay = 0.00>
+ST_6 : Operation 205 [1/1] (2.32ns)   --->   "store i32 %tmp_V, i32* %inputBuf_1_V_addr_4, align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:156]   --->   Operation 205 'store' <Predicate = (!tmp_i_2861 & or_cond_i & tmp_2996 == 1)> <Delay = 2.32> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_6 : Operation 206 [1/1] (0.00ns)   --->   "br label %_ifconv" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:156]   --->   Operation 206 'br' <Predicate = (!tmp_i_2861 & or_cond_i & tmp_2996 == 1)> <Delay = 0.00>
+ST_6 : Operation 207 [1/1] (2.32ns)   --->   "store i32 %tmp_V, i32* %inputBuf_0_V_addr_4, align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:156]   --->   Operation 207 'store' <Predicate = (!tmp_i_2861 & or_cond_i & tmp_2996 == 0)> <Delay = 2.32> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_6 : Operation 208 [1/1] (0.00ns)   --->   "br label %_ifconv" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:156]   --->   Operation 208 'br' <Predicate = (!tmp_i_2861 & or_cond_i & tmp_2996 == 0)> <Delay = 0.00>
+ST_6 : Operation 209 [1/1] (2.32ns)   --->   "store i32 %tmp_V, i32* %inputBuf_3_V_addr_4, align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:156]   --->   Operation 209 'store' <Predicate = (!tmp_i_2861 & or_cond_i & tmp_2996 == 3)> <Delay = 2.32> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_6 : Operation 210 [1/1] (0.00ns)   --->   "br label %_ifconv" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:156]   --->   Operation 210 'br' <Predicate = (!tmp_i_2861 & or_cond_i & tmp_2996 == 3)> <Delay = 0.00>
+ST_6 : Operation 211 [1/1] (2.32ns)   --->   "store i32 %tmp_V_867, i32* %inputBuf_2_V_addr, align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:110]   --->   Operation 211 'store' <Predicate = (tmp_i_2861 & tmp_2991 == 2)> <Delay = 2.32> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_6 : Operation 212 [1/1] (0.00ns)   --->   "br label %1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:110]   --->   Operation 212 'br' <Predicate = (tmp_i_2861 & tmp_2991 == 2)> <Delay = 0.00>
+ST_6 : Operation 213 [1/1] (2.32ns)   --->   "store i32 %tmp_V_867, i32* %inputBuf_1_V_addr, align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:110]   --->   Operation 213 'store' <Predicate = (tmp_i_2861 & tmp_2991 == 1)> <Delay = 2.32> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_6 : Operation 214 [1/1] (0.00ns)   --->   "br label %1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:110]   --->   Operation 214 'br' <Predicate = (tmp_i_2861 & tmp_2991 == 1)> <Delay = 0.00>
+ST_6 : Operation 215 [1/1] (2.32ns)   --->   "store i32 %tmp_V_867, i32* %inputBuf_0_V_addr, align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:110]   --->   Operation 215 'store' <Predicate = (tmp_i_2861 & tmp_2991 == 0)> <Delay = 2.32> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_6 : Operation 216 [1/1] (0.00ns)   --->   "br label %1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:110]   --->   Operation 216 'br' <Predicate = (tmp_i_2861 & tmp_2991 == 0)> <Delay = 0.00>
+ST_6 : Operation 217 [1/1] (2.32ns)   --->   "store i32 %tmp_V_867, i32* %inputBuf_3_V_addr, align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:110]   --->   Operation 217 'store' <Predicate = (tmp_i_2861 & tmp_2991 == 3)> <Delay = 2.32> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_6 : Operation 218 [1/1] (0.00ns)   --->   "br label %1" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:110]   --->   Operation 218 'br' <Predicate = (tmp_i_2861 & tmp_2991 == 3)> <Delay = 0.00>
+
+State 7 <SV = 6> <Delay = 4.28>
+ST_7 : Operation 219 [1/2] (2.32ns)   --->   "%inputBuf_0_V_load = load i32* %inputBuf_0_V_addr_5, align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129]   --->   Operation 219 'load' 'inputBuf_0_V_load' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 2.32> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_7 : Operation 220 [1/2] (2.32ns)   --->   "%inputBuf_1_V_load = load i32* %inputBuf_1_V_addr_5, align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129]   --->   Operation 220 'load' 'inputBuf_1_V_load' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 2.32> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_7 : Operation 221 [1/2] (2.32ns)   --->   "%inputBuf_2_V_load = load i32* %inputBuf_2_V_addr_5, align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129]   --->   Operation 221 'load' 'inputBuf_2_V_load' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 2.32> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_7 : Operation 222 [1/2] (2.32ns)   --->   "%inputBuf_3_V_load = load i32* %inputBuf_3_V_addr_5, align 4" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129]   --->   Operation 222 'load' 'inputBuf_3_V_load' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 2.32> <Core = "RAM_2P">   --->   Core 39 'RAM_2P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 24> <RAM>
+ST_7 : Operation 223 [1/1] (1.95ns)   --->   "%outElem_V = call i32 @_ssdm_op_Mux.ap_auto.4i32.i2(i32 %inputBuf_0_V_load, i32 %inputBuf_1_V_load, i32 %inputBuf_2_V_load, i32 %inputBuf_3_V_load, i2 %current_block_read_9)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129]   --->   Operation 223 'mux' 'outElem_V' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 1.95> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.95> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+
+State 8 <SV = 7> <Delay = 2.18>
+ST_8 : Operation 224 [1/1] (2.18ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i32P(i32* %out_V_V, i32 %outElem_V)" [/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:130]   --->   Operation 224 'write' <Predicate = (!tmp_i_2861 & tmp_128_i)> <Delay = 2.18> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+
+State 9 <SV = 3> <Delay = 0.00>
+ST_9 : Operation 225 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 225 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 4.38ns
+The critical path consists of the following:
+	fifo read on port 'numReps' [22]  (2.19 ns)
+	fifo write on port 'numReps_out' [24]  (2.19 ns)
+
+ <State 2>: 2.84ns
+The critical path consists of the following:
+	'add' operation ('bound') [30]  (2.84 ns)
+
+ <State 3>: 3.51ns
+The critical path consists of the following:
+	'icmp' operation ('exitcond_flatten') [45]  (2.53 ns)
+	blocking operation 0.978 ns on control path)
+
+ <State 4>: 7.88ns
+The critical path consists of the following:
+	'load' operation ('current_line_4_load_3', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:159) on local variable 'current_line' [170]  (0 ns)
+	'add' operation ('current_line', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:159) [171]  (2.55 ns)
+	'icmp' operation ('tmp_143_i', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:160) [172]  (2.47 ns)
+	'select' operation ('read_block', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:160) [181]  (0.993 ns)
+	'store' operation (/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:170) of variable 'read_block_3_cast_i', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:170 on local variable 'read_block' [186]  (1.86 ns)
+
+ <State 5>: 7.54ns
+The critical path consists of the following:
+	'load' operation ('current_block_write_12', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:164) on local variable 'current_block_write' [169]  (0 ns)
+	'add' operation ('current_block_write', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:164) [175]  (2.55 ns)
+	'icmp' operation ('tmp_144_i', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:165) [176]  (2.47 ns)
+	'select' operation ('current_block_write', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:165) [177]  (0 ns)
+	'select' operation ('current_block_write', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:160) [179]  (0.698 ns)
+	'store' operation (/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:115) of variable 'current_block_write', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:160 on local variable 'current_block_write' [185]  (1.81 ns)
+
+ <State 6>: 2.32ns
+The critical path consists of the following:
+	'getelementptr' operation ('inputBuf_0_V_addr_5', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129) [79]  (0 ns)
+	'load' operation ('inputBuf_0_V_load', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129) on array 'inputBuf[0].V', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:88 [80]  (2.32 ns)
+
+ <State 7>: 4.28ns
+The critical path consists of the following:
+	'load' operation ('inputBuf_0_V_load', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129) on array 'inputBuf[0].V', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:88 [80]  (2.32 ns)
+	'mux' operation ('outElem.V', /home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:129) [87]  (1.96 ns)
+
+ <State 8>: 2.19ns
+The critical path consists of the following:
+	fifo write on port 'out_V_V' (/home/parallels/Documents/vivado_projects/BNN-PYNQ/bnn/src/library/finn-hlslib/slidingwindow.h:130) [88]  (2.19 ns)
+
+ <State 9>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

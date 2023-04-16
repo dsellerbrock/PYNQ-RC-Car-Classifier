@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../bd/procsys/ip/procsys_rst_ps7_100M_0/sim/procsys_rst_ps7_100M_0.vhd" \
+
+nosort
