@@ -1,2 +1,9 @@
 # PYNQ-RC-Car-Classifier
-Code used for my Master's project. This code implements a BNN from the PYNQ-BNN repository and use the hadrware classfieir to control an RC car. A Custom version of the BNN-PYNQ Vivado project had to be created to implement i2c for car control
+
+Master's project: a binarized neural network (BNN) classifier on a PYNQ-Z1/Z2 that drives an RC car. Based on Xilinx BNN-PYNQ, with a custom Vivado design adding I2C for car control.
+
+- `BNN I2C Bitstream/`: ready-to-load `i2c_classifier.bit` / `.hwh`
+- `BNN I2C Vivado Project/output/`: generated HLS and Vivado project output (large)
+- `TODO.md`: known gaps (missing constraints file, car source, modified library)
+
+Status: archived (2023-04).
